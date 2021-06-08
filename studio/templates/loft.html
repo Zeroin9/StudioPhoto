@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <a name="home"></a>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo">
+                        <a href="{% url 'index' %}#home">
+                            <img src="{% static "img/logotest3.png" %}" alt="Studio Photo">
+                        </a>
+                    </div>
+                    <nav class="nav-menu mobile-menu">
+                        <ul>
+                            <li><a href="{% url 'index' %}#home">Главная</a></li>
+                            <li class="active"><a href="{% url 'index' %}#rooms">Залы</a>
+                            <ul class="dropdown">
+                                    <li><a href="{% url 'simple' %}">Simple</a></li>
+                                    <li><a href="{% url 'white' %}">White</a></li>
+                                    <li><a href="{% url 'loft' %}">Loft</a></li>
+                            </ul>
+                            </li>
+                            <li><a href="{% url 'portfolio' %}">Порфтолио</a></li>
+                            <li><a href="{% url 'index' %}#adds">Услуги</a></li>
+                            <li><a href="{% url 'index' %}#prices">Прайс</a></li>
+                            <li><a href="#contacts">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div id="mobile-menu-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Cta Section Begin -->
+    <section class="cta-section spad set-bg" data-setbg="{% static "img/narrow/loft1_narrow.jpg" %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-text">
+                        <h2>Loft</h2>
+                        <p>Интерьерный зал в стиле лофт с естественным освещением.<br />
+                            В зале есть кушетка, табуреты и соответствующий стилю декор.</p>
+                        <a href="#book" class="primary-btn">Забронировать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cta Section End -->
+
+    <!-- Preview Section Begin -->
+    <section class="preview-section spad">
+        <div class="container">
+            <div class="preview-slider 2pic owl-carousel">
+                <div class="cs-item">
+                    <div class="cs-pic set-bg" data-setbg="{% static "img/rooms/loft1.jpg" %}"></div>
+                </div>
+                <div class="cs-item">
+                    <div class="cs-pic set-bg" data-setbg="{% static "img/rooms/loft2.jpg" %}"></div>
+                </div>
+                <div class="cs-item">
+                    <div class="cs-pic set-bg" data-setbg="{% static "img/rooms/loft3.jpg" %}"></div>
+                </div>
+                <div class="cs-item">
+                    <div class="cs-pic set-bg" data-setbg="{% static "img/rooms/loft4.jpg" %}"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Preview Section End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <a name="book"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1 col-md-1"></div>
+                <div class="col-lg-9 col-md-9">
+                    <div class="contact-form">
+                        <h3>Забронировать</h3>
+                        <form id="booking" method="POST">
+                            {% csrf_token %}
+                            <input type="text" required placeholder="Имя" id="guest_name">
+                            <input type="text" required placeholder="Телефон" id="phone_number">
+                            <h5>Дата бронирования:</h5>
+                            <input required id="datepicker">
+                            <h5>Время бронирования:</h5>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <button type='button' id="at10" class="site-btn timepick">10:00</button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type='button' id="at12" class="site-btn timepick">12:30</button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type='button' id="at15" class="site-btn timepick">15:00</button>
+                                </div>
+                            </div>
+                            <input type="hidden" id="timepickValue" value="" />
+                            <input type="hidden" id="room_form" value="Loft" />
+                            <select name="adds-pick" id="adds-pick">
+                                <option value="nn">Выберете дополнительную услугу</option>
+                                <option value="ph">Услуги фотографа</option>
+                                <option value="st">Аренда оборудования</option>
+                            </select>
+                            <button type="submit" class="site-btn submit">Забронировать</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-1"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Services Option Section Begin -->
+    <section class="services-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <h2>Правила студии</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">01</div>
+                            <h5>Время аренды – 2 часа</h5>
+                        </div>
+                    </div>
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">02</div>
+                            <h5>Не более 5 человек в зале</h5>
+                        </div>
+                    </div>
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">03</div>
+                            <h5>Сменная обувь</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">04</div>
+                            <h5>Работа с арендованным оборудованием проходит под надзором сотрудника студии</h5>
+                        </div>
+                    </div>
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">05</div>
+                            <h5>Арендатор обязан возместить ущерб нанесённый имуществу студии</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Option Section End -->
+
+{% endblock %}

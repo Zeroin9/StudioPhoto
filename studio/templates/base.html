@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Studio Photo</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/elegant-icons.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/slicknav.min.css" %}" type="text/css">
+    <link href="{% static "css/bootstrap-datepicker.min.css" %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <a name="contacts"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="fs-about">
+                        <div class="fa-logo">
+                            <a href="{% url 'index' %}#home">
+                                <img src="{% static "img/logotest3_inv.png" %}" alt="LOGO">
+                            </a>
+                        </div>
+                        <p>+79998887766<br/>г. Иркутск, ул. Байкальская, 124/1</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="fs-widget">
+                        <ul>
+                            <li><a href="{% url 'index' %}#home">Главная</a></li>
+                            <li><a href="{% url 'index' %}#rooms">Залы</a></li>
+                            <li><a href="{% url 'portfolio' %}">Порфтолио</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="{% url 'index' %}#adds">Услуги</a></li>
+                            <li><a href="{% url 'index' %}#prices">Прайс</a></li>
+                            <li><a href="#contacts">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="fs-widget">
+                        <div class="fa-social">
+                            <a><i class="fa fa-instagram fa-3x"> @studiophoto38</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Abadf4899168bd77897f63849e536cb56aa294afba5c28e3d7a82ed390e33e8ff&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p><script>document.write(new Date().getFullYear());</script>. by <a href="https://github.com/Z3R0ing" target="_blank">Zeroing</a></p>
+                        <p>This template is made by <a href="https://colorlib.com" target="_blank">&copy;Colorlib</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+        <!-- Js Plugins -->
+    <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+    <script src="{% static "js/isotope.pkgd.min.js" %}"></script>
+    <script src="{% static "js/jquery.slicknav.js" %}"></script>
+    <script src="{% static "js/owl.carousel.min.js" %}"></script>
+    <script src="{% static "js/bootstrap-datepicker.min.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+</body>
+
+</html>

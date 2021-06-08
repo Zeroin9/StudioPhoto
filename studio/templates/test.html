@@ -1,0 +1,204 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style type="text/css">
+        .site-btn {
+	font-size: 15px;
+	color: #ffffff;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-family: "Quantico", sans-serif;
+	display: inline-block;
+	padding: 14px 30px 12px;
+	background: #009603;
+	border: none;
+	margin-bottom: 30px;
+}
+
+.site-btn.timepick {
+	color: #000000;
+	background: #ffffff;
+	border: 2px;
+	border-style: solid;
+	border-color: #000;
+}
+
+.site-btn.timepick:hover {
+	color: #009603;
+	background: #ffffff;
+	border-color:  #009603;
+}
+
+.site-btn.timepick.off {
+	color: #000000;
+	background: #3a3a3a;
+	border: 2px;
+}
+
+.site-btn.timepick.off:hover {
+	color: #000000;
+	background: #3a3a3a;
+	border: 2px;
+}
+
+.site-btn.timepick.select {
+	color: #009603;
+	background: #ffffff;
+	border-color:  #009603;
+}
+        </style>
+    </head>
+    <body>
+        <form id="booking" method="POST">
+            {% csrf_token %}
+                            <input type="text" placeholder="Имя" id="guest_name">
+                            <input type="text" placeholder="Телефон" id="phone_number">
+                            <h5>Дата бронирования:</h5>
+                            <input id="datepicker">
+                            <h5>Время бронирования:</h5>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <button type='button' id="at10" class="site-btn timepick">10:00</button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type='button' id="at12" class="site-btn timepick">12:30</button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type='button' id="at15" class="site-btn timepick">15:00</button>
+                                </div>
+                            </div>
+                            <input type="hidden" id="timepickValue" value="" />
+                            <input type="hidden" id="room_form" value="Simple" />
+                            <select name="adds-pick" id="adds-pick">
+                                <option value="nn">Выберете дополнительную услугу</option>
+                                <option value="ph">Услуги фотографа</option>
+                                <option value="st">Аренда оборудования</option>
+                            </select>
+                            <button type="submit" class="site-btn submit">Забронировать</button>
+        </form>
+<script type = "text/javascript">
+/*------------------
+        Timepick buttons
+    --------------------*/
+    var btn10 = $('#at10');
+    var btn12 = $('#at12');
+    var btn15 = $('#at15');
+    var hideBtn = $('#timepickValue');
+
+    var btn10Select = function () {
+        btn10.addClass("select");
+        btn12.removeClass("select");
+        btn15.removeClass("select");
+        hideBtn.attr("value", "10:00");
+    };
+
+    var btn12Select = function () {
+        btn10.removeClass("select");
+        btn12.addClass("select");
+        btn15.removeClass("select");
+        hideBtn.attr("value", "12:30");
+    };
+
+    var btn15Select = function () {
+        btn10.removeClass("select");
+        btn12.removeClass("select");
+        btn15.addClass("select");
+        hideBtn.attr("value", "15:00");
+    };
+
+    $.fn.deSelect = function () {
+        btn10.removeClass("off");
+        btn10.prop('disabled', false);
+        btn12.removeClass("off");
+        btn12.prop('disabled', false);
+        btn15.removeClass("off");
+        btn15.prop('disabled', false);
+        btn10.removeClass("select");
+        btn12.removeClass("select");
+        btn15.removeClass("select");
+        hideBtn.attr("value", "");
+    };
+
+    btn10.click(btn10Select);
+    btn12.click(btn12Select);
+    btn15.click(btn15Select);
+
+/*------------------
+        Date Picker
+    --------------------*/
+    var mydatepicker = $('#datepicker');
+    mydatepicker.datepicker({
+        weekStart: 1,
+        startDate: "today",
+        language: "ru",
+        daysOfWeekDisabled: "0,6",
+        daysOfWeekHighlighted: "6,0",
+        autoclose: true,
+        todayHighlight: true,
+        format: "yyyy-mm-dd",
+    });
+    mydatepicker.change(function () {
+        console.log('change');
+        $.fn.deSelect();
+        $.ajax({
+                type: 'POST',
+                url: "{% url 'test' %}",
+                data: {date: mydatepicker.val(), csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").attr('value')},
+                dataType: 'json',
+                success: function(response) {
+                    if (response['time_list'].includes("10:00")) {
+                        btn10.addClass("off");
+                        btn10.prop('disabled', true);
+                    }
+                    if (response['time_list'].includes("12:30")) {
+                        btn12.addClass("off");
+                        btn12.prop('disabled', true);
+                    }
+                    if (response['time_list'].includes("15:00")) {
+                        btn15.addClass("off");
+                        btn15.prop('disabled', true);
+                    }
+                },
+                error: function (response) {
+                      alert(response.responseJSON.errors);
+                      console.log(response.responseJSON.errors)
+                }
+            });
+    });
+
+    /*
+    */
+    $('#booking').submit(function () {
+        form_data = {
+            room: $('#room_form').val(),
+            guest_name: $('#guest_name').val(),
+            phone_number: $('#phone_number').val(),
+            date: mydatepicker.val(),
+            time: $('#timepickValue').val(),
+            services: $('#adds-pick').val(),
+            csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").attr('value')
+        }
+        $.ajax({
+                type: 'POST',
+                url: "{% url 'add_book' %}",
+                data: form_data,
+                dataType: 'json',
+                success: function(response) {
+                    alert("Вы записаны на " + response.date + " " + response.time);
+                },
+                error: function (response) {
+                    alert(response.responseJSON.errors);
+                    console.log(response.responseJSON.errors)
+                }
+            });
+
+    });
+</script>
+    </body>
+</html>

@@ -1,0 +1,381 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <a name="home"></a>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo">
+                        <a href="{% url 'index' %}#home">
+                            <img src="{% static "img/logotest3.png" %}" alt="Studio Photo">
+                        </a>
+                    </div>
+                    <nav class="nav-menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="{% url 'index' %}#home">Главная</a></li>
+                            <li><a href="{% url 'index' %}#rooms">Залы</a>
+                            <ul class="dropdown">
+                                    <li><a href="{% url 'simple' %}">Simple</a></li>
+                                    <li><a href="{% url 'white' %}">White</a></li>
+                                    <li><a href="{% url 'loft' %}">Loft</a></li>
+                            </ul>
+                            </li>
+                            <li><a href="{% url 'portfolio' %}">Порфтолио</a></li>
+                            <li><a href="{% url 'index' %}#adds">Услуги</a></li>
+                            <li><a href="{% url 'index' %}#prices">Прайс</a></li>
+                            <li><a href="#contacts">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div id="mobile-menu-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="hs-slider owl-carousel">
+            <div class="hs-item set-bg" data-setbg="{% static "img/hero/hero-1.jpg" %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hs-text">
+                                <h2>Фотостудия Photo Studio</h2>
+                                <p>Профессиональная фотостудия, идеально подходящая для фотосъемки, видеосъемки, обучения и презентаций.<br />
+                                Просторные залы с дневным и искусственным освещением, профессиональное оборудование для съёмки, циклорама и интерьерные залы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-item set-bg" data-setbg="{% static "img/hero/hero-2.jpg" %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hs-text">
+                                <h2>Фотостудия Photo Studio</h2>
+                                <p>Профессиональная фотостудия, идеально подходящая для фотосъемки, видеосъемки, обучения и презентаций.<br />
+                                Просторные залы с дневным и искусственным освещением, профессиональное оборудование для съёмки, циклорама и интерьерные залы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Rooms Section Begin -->
+    <section class="room-section spad">
+        <a name="rooms"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="room-item">
+                        <img src="{% static "img/rooms/simple1_square.jpg" %}" alt="">
+                        <h3>Simple</h3>
+                        <p>Белый зал с циклорамой и искусственным светом. Большой выбор тканевых и бумажных фонов.<br />Ничто не помешает хорошо настроенному свету.</p>
+                        <div class="load-more-btn">
+                            <a href="{% url 'simple' %}">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="room-item">
+                        <img src="{% static "img/rooms/white1_square.jpg" %}" alt="">
+                        <h3>White</h3>
+                        <p>Светлый интерьерный зал с большими окнами.  Выдержан в белых  оттенках, наполнен деревянной мебелью и разнообразным декором и растениями.</p>
+                        <div class="load-more-btn">
+                            <a href="{% url 'white' %}">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="room-item">
+                        <img src="{% static "img/rooms/loft1_square.jpg" %}" alt="">
+                        <h3>Loft</h3>
+                        <p>Интерьерный зал в стиле лофт с естественным освещением. В зале есть кушетка, табуреты и соответствующий стилю декор.</p>
+                        <div class="load-more-btn">
+                            <a href="{% url 'loft' %}">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Rooms Section End -->
+
+    <!-- Portfolio Section Begin -->
+    <section class="portfolio-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="section-title">
+                        <h2>Наши работы</h2>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="right-btn"><a href="{% url 'portfolio' %}" class="primary-btn">Больше работ</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 p-0">
+                    <div class="portfolio-preview">
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/clothes.jpg" %}">
+                            <a href="{% static "img/portfolio/clothes.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/selfie.jpg" %}">
+                            <a href="{% static "img/portfolio/selfie.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/flower.jpg" %}">
+                            <a href="{% static "img/portfolio/flower.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/kids.jpg" %}">
+                            <a href="{% static "img/portfolio/kids.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/whirl.jpg" %}">
+                            <a href="{% static "img/portfolio/whirl.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/notebook.jpg" %}">
+                            <a href="{% static "img/portfolio/notebook.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/sleep.jpg" %}">
+                            <a href="{% static "img/portfolio/sleep.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/rose.jpg" %}">
+                            <a href="{% static "img/portfolio/rose.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/heart.jpg" %}">
+                            <a href="{% static "img/portfolio/heart.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                        <div class="pf-item set-bg" data-setbg="{% static "img/portfolio/pasport.jpg" %}">
+                            <a href="{% static "img/portfolio/pasport.jpg" %}" class="pf-icon image-popup"><span class="icon_plus"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Section End -->
+
+    <!-- Additionals Section Begin -->
+    <section class="add-section spad">
+        <a name="adds"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-mg-12">
+                    <div class="section-title">
+                        <h2>Дополнительные услуги</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-5 col-sm-12">
+                        <div class="bi-pic">
+                            <img src="{% static "img/additional/staff.jpg" %}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-7 col-sm-12">
+                        <div class="bi-text">
+                        <h5>Аренда осветительного оборудования</h5>
+                        <p>Studio Photo предоставляет профессиональное световое оборудование при аренде залов.
+                            Предоставляется полный комплект импульсного освещения (софтбоксы ,зонты, синхронизаторы),
+                            а так же комплект постоянного освещения из нескольких осветителей. Так же в циклораме
+                            можно установаить хромакей по желанию клента.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-7 col-sm-12">
+                        <div class="bi-text">
+                            <h5>Услуги профессионального фотографа</h5>
+                            <p>Studio Photo предлагает услуги профессионального фотографа, который создает стильные
+                                шедевры согласно вашим просьбам. Обращаясь к нашим фотографам, вы получаете положительные
+                                эмоции, прекрасные воспоминания, комфортную обстановку и уникальные фотографии, которые
+                                будут радовать вас своим качеством на протяжении многих лет.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-5 order-first order-sm-12">
+                        <div class="bi-pic">
+                            <img src="{% static "img/additional/photographer.jpg" %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="add-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-5 col-sm-12">
+                        <div class="bi-pic">
+                            <img src="{% static "img/additional/buissnes.jpg" %}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-7 col-sm-12">
+                        <div class="bi-text">
+                            <h5>Коммерческая фотосъёмка</h5>
+                            <p>Люди воспринимают 90% информации через зрение. Наш мозг обрабатывает визуальную информацию
+                                в 60 000 раз быстрее, чем текст. Качественные, «живые» фотографии повышают доверие
+                                потенциальных покупателей. И как следствие их реакция на ваше предложение. Создаем
+                                рекламные каталоги, фирменные буклеты, календари, плакаты, открытки и т. д. Договориться
+                                о бизнесс-фотосессии можно по телефону +79998887766</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Additionals Section End -->
+
+    <!-- Pricing Section Begin -->
+    <section class="pricing-section spad">
+        <a name="prices"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title pricing-title">
+                        <h2>Прайс-лист</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-sm-12">
+                    <div class="pricing-item">
+                        <div class="pi-price">
+                            <h2>500₽</h2>
+                            <span>в час</span>
+                        </div>
+                        <div class="pi-title">
+                            <h3>Аренда зала</h3>
+                        </div>
+                        <div class="pi-text">
+                            <ul>
+                                <li>Аренда ТОЛЬКО на 2 часа</li>
+                                <li>Любой зал</li>
+                                <li>Можно выбрать доп. услуги</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-sm-12">
+                    <div class="pricing-item">
+                        <div class="pi-price">
+                            <h2>200₽</h2>
+                            <span>в час</span>
+                        </div>
+                        <div class="pi-title">
+                            <h3>Оборудование</h3>
+                        </div>
+                        <div class="pi-text">
+                            <ul>
+                                <li>Под наблюдением профессионала</li>
+                                <li>Полный набор</li>
+                                <li>Только при аренде зала</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-sm-12">
+                    <div class="pricing-item">
+                        <div class="pi-price">
+                            <h2>300₽</h2>
+                            <span>в час</span>
+                        </div>
+                        <div class="pi-title">
+                            <h3>Фотограф</h3>
+                        </div>
+                        <div class="pi-text">
+                            <ul>
+                                <li>Профессионал своего дела</li>
+                                <li>Стильные фото</li>
+                                <li>Обработка фотографий</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-sm-12">
+                    <div class="pricing-item">
+                        <div class="pi-price">
+                            <h2>1500₽</h2>
+                        </div>
+                        <div class="pi-title">
+                            <h3>Бизнес съёмка</h3>
+                        </div>
+                        <div class="pi-text">
+                            <ul>
+                                <li>Любой продукт</li>
+                                <li>В наших помещениях</li>
+                                <li>В короткие сроки</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section End -->
+
+    <!-- Services Option Section Begin -->
+    <section class="services-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <h2>Правила студии</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">01</div>
+                            <h5>Время аренды – 2 часа</h5>
+                        </div>
+                    </div>
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">02</div>
+                            <h5>Не более 5 человек в зале</h5>
+                        </div>
+                    </div>
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">03</div>
+                            <h5>Сменная обувь</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">04</div>
+                            <h5>Работа с арендованным оборудованием проходит под надзором сотрудника студии</h5>
+                        </div>
+                    </div>
+                    <div class="so-item">
+                        <div class="so-title">
+                            <div class="so-number">05</div>
+                            <h5>Арендатор обязан возместить ущерб нанесённый имуществу студии</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Option Section End -->
+
+{% endblock %}
